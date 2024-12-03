@@ -12,4 +12,7 @@ Members (in alphabetical order):
 Update from Adam
 
 I've used gemini to help me make an app with flask. This has absolutely no functionality.
+
+Clone the repo, make a conda env using env.yaml, make, type 'python app.py' in terminal
+
 ![alt text](robosmilescreenshot.png)
