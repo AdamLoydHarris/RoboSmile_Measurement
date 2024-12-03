@@ -9,3 +9,6 @@ Members (in alphabetical order):
 - María Navas-Loro
 - Luis Torrao
 
+Update: Adam
+I've used gemini to help me make an app with flask. This has absolutely no functionality.
+![alt text](robosmilescreenshot.png)
