@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<!-- <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -9,18 +9,72 @@
 <body>
     <div class="logo-container">
         <img src="static/images/robosmile.jpeg" alt="Team Logo", class="logo">
-        <img src="static/images/mexa_square.jpeg" alt="MEXA Logo", class="logo">
     </div>
     <div class="container">
+        <img src="static/images/mexa_square.jpeg" alt="MEXA Logo", class="logo">
         <h1>We're here to help you get help.</h1>
         <form method="POST">
-            <textarea name="user_input" rows="10" cols="50" placeholder="Enter your thoughts here"></textarea>
+            <textarea name="user_input" rows="10" cols="50" placeholder="Tell me what's wrong"></textarea>
             <br>
             <input type="submit" value="Submit">
         </form>
         <p>{{ response }}</p>
         
     </div>
-</body>
+    <-- <div class="logo-container">
+        <img src="static/images/robosmile.jpeg" alt="Team Logo", class="logo">
+    </div>
+    <div class="container">
+       
+        <img src="static/images/mexa_square.jpeg" alt="MEXA Logo", class="logo">
+        <h1>We're here to help you get help.</h1>
+        <form method="POST">
+            <textarea name="user_input" rows="10" cols="50" placeholder="Tell me what's wrong"></textarea>
+            <br>
+            <input type="submit" value="Submit">
+        </form>
+        <p>{{ response }}</p>
+    </div> -->
+<!-- </body>
 
+</html> --> 
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>RoboSmile</title> 
+    <link rel="stylesheet" href="static/styles/style.css">
+</head>
+<body>
+    <div class="logo-container">
+        <img src="static/images/robosmile.jpeg" alt="Team Logo", class="logo">
+    </div>
+    <div class="container">
+        <img src="static/images/mexa_square.jpeg" alt="MEXA Logo", class="logo">
+        <h1>We're here to help you get help</h1>
+        <div class="chat-box">
+            {% for message in conversation %}
+                <div class="message {{ message.sender }}">
+                    <p>{{ message.text }}</p>
+                </div>
+            {% endfor %}
+        </div>
+        <form method="POST">
+            <textarea name="user_input" rows="10" cols="50" placeholder="Tell me what's wrong"></textarea>
+            <br>
+            <input type="submit" value="Submit">
+            <button type="button" onclick="resetChat()">Reset</button>
+        </form>
+    </div>
+    <script>
+        function resetChat() {
+            // Send a request to the server to clear the conversation history
+            // and reload the page
+            window.location.href = "/";
+        }
+    </script>
+</body>
 </html>

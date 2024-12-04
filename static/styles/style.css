@@ -7,6 +7,28 @@ body {
     background-color: #f0f0f0;
 }
 
+.chat-box {
+    max-height: 400px;
+    overflow-y: scroll;
+}
+
+.message {
+    margin-bottom: 10px;
+}
+
+.message.user {
+    text-align: right;
+    background-color: #e0f2f1;
+    padding: 10px;
+    border-radius: 10px 10px 0 10px;
+}
+
+.message.ai {
+    text-align: left;
+    background-color: #f0f0f0;
+    padding: 10px;
+    border-radius: 10px 10px 10px 0;
+}
 
 .logo-container {
     display: flex;
@@ -27,6 +49,18 @@ body {
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
     text-align: center;
 }
+.user-message {
+    text-align: right;
+    color: green;
+    margin-right: 20px;
+  }
+  
+.bot-message {
+    text-align: left;
+    color: blue;
+    margin-left: 20px;
+  }
+  
 
 h1 {
     font-size: 38px;
