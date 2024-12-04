@@ -50,12 +50,12 @@
 </head>
 <body>
     <div class="logo-container">
-        <img src="static/images/robosmile.jpeg" alt="Team Logo", class="logo">
+        <img src="static/images/mexa_trans.png" alt="MEXA Logo", class="logo">
     </div>
     <div class="container">
-        <img src="static/images/mexa_square.jpeg" alt="MEXA Logo", class="logo">
+        <img src="static/images/robosmile.jpeg" alt="Robosmile_logo", class="logo">
         <h1>We're here to help you get help</h1>
-        <div class="chat-box">
+        <div class="chat-box", id="chat-box">
             {% for message in conversation %}
                 <div class="message {{ message.sender }}">
                     <p>{{ message.text }}</p>
@@ -70,11 +70,29 @@
         </form>
     </div>
     <script>
+        function scrollToBottom() {
+            const chatBox = document.getElementById('chat-box');
+            chatBox.scrollTop = chatBox.scrollHeight;
+        }
+            // Call the scrollToBottom function whenever new messages are added
+        scrollToBottom();
+        
         function resetChat() {
             // Send a request to the server to clear the conversation history
             // and reload the page
-            window.location.href = "/";
+            fetch('/reset', {
+                method: 'POST'
+            })
+            .then(response => {
+                if (response.ok) {
+                    window.location.href = "/";
+                } else {
+                    // Handle error
+                    console.error('Error resetting chat:', response.statusText);
+                }
+            });
         }
+        
     </script>
 </body>
 </html>
