@@ -23,6 +23,13 @@ body {
     border-radius: 10px 10px 0 10px;
 }
 
+.message.summary {
+    text-align: left;
+    background-color: #ebf2e0;
+    padding: 10px;
+    border-radius: 10px 10px 0 10px;
+}
+
 .message.ai {
     text-align: left;
     background-color: #f0f0f0;

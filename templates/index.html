@@ -65,8 +65,14 @@
         <form method="POST">
             <textarea name="user_input" rows="10" cols="50" placeholder="Tell me what's wrong"></textarea>
             <br>
+            
             <input type="submit" value="Submit">
+            <form action="/summarise" method="POST">
+                <button type="submit"  onclick="summariseChat()"">Summarize Chat</button>
+            </form>
             <button type="button" onclick="resetChat()">Reset</button>
+            
+            
         </form>
     </div>
     <script>
@@ -77,6 +83,14 @@
             // Call the scrollToBottom function whenever new messages are added
         scrollToBottom();
         
+        function summariseChat() {
+            // Send a request to the server to clear the conversation history
+            // and reload the page
+            fetch('/summarise', {
+                method: 'POST'
+            });
+        }
+
         function resetChat() {
             // Send a request to the server to clear the conversation history
             // and reload the page

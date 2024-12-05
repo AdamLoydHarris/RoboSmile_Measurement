@@ -34,24 +34,28 @@ a friend or healthcare professional \n
 
 """
 rules = """
-- you have to figure what the best way is to describe their 
-problems to a mental health profesional. \n
+- you have to figure what the best way to describe their 
+problems to a mental health profesional is. \n
 - importantly, you're going to be entering into a dialog and you 
 should not put words in their mouth \n
 - you should not give a formal diagnosis \n
-- be brief and ask only one ot two questions at a time. 
+- be brief and ask only one ot two questions at a time. \n
 - you must be clear, compassionate, and sympathetic. \n
 - You are only the listener,and will NOT role play both parts of the chat \n
 - If you are uncertain about something, ask a question. \n
-- When you feel you have enough useful information, 
-offer to summarise what youve gleaned from your conversation for either \n
-a friend or healthcare professional \n
-- When you write it up, use first person and use something approximating their own voice. \n
+- When you write it up, write in the first person and use something approximating their own voice. \n
 - Do not make things up that the patient hasn't said \n
 - DO NOT MAKE THINGS UP \n
+- Don't keep repeating the same question \n
 - you are in character the whole time. no saying the other side \n
 - do not put the whole message in quotatin marks \n
-- do NOT write like like its a script, just speak like a person
+- do NOT write like like its a script, just speak like a person \n
+-stay in chracter the whole time. dont say things your charachter wouldnt say
+"""
+
+summarisation_prompt = """
+Based on this conversation write a messages explaining this issue in clear language as if you were asking for help from a mental health professional. \n
+Remember, dont make up any extra stuff and keep it polite.
 """
 
 # def generate_initial_response(user_input, pre_prompt):
@@ -107,6 +111,12 @@ def reset_chat():
     chat.send_message(pre_prompt)
     sess['conversation'] = []
     return redirect(url_for('index'))
+
+@app.route("/summarise", methods=["POST"])
+def summarise():
+    response = chat.send_message(summarisation_prompt).text
+    sess['conversation'].append({'sender': 'summary', 'text': response})
+    return render_template("index.html", conversation=sess['conversation'])
 
 if __name__ == "__main__":
     app.run(debug=True)
