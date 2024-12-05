@@ -120,17 +120,12 @@ shapely==2.0.6
 six==1.16.0
 soupsieve==2.5
 stack-data==0.6.2
-tensorboard==2.16.2
-tensorboard-data-server==0.7.2
-tensorflow==2.16.2
-tensorflow-io-gcs-filesystem==0.37.1
 termcolor==2.5.0
 threadpoolctl==3.5.0
 tokenizers==0.20.3
 tornado==6.4.2
 tqdm==4.67.1
 traitlets==5.14.3
-transformers==4.46.3
 typing_extensions==4.12.2
 tzdata==2024.2
 uritemplate==4.1.1
