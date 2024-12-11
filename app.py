@@ -1,11 +1,12 @@
 from flask import Flask, render_template, request, session,  redirect, url_for
 import google.generativeai as genai
 
-# Load a pre-trained language model
+# Load a pre-trained language model'
 
 
 # Configure the API Key
 GOOGLE_API_KEY = 'AIzaSyCNyCdzpcNjEU2vFlhWpQIW0DZfFH_uqwE'
+GOOGLE_API_KEY ="AIzaSyCvx6KDS2gwOe5O6WKeyy_3QkazmJAmILo"
 genai.configure(api_key=GOOGLE_API_KEY)
 model = genai.GenerativeModel('gemini-pro')
 
